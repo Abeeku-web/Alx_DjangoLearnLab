@@ -10,6 +10,3 @@ class BookAdmin(admin.ModelAdmin):
 
     #Add list filters
     list_filter = ('publication_year',)
-
-# Register the Book model with the customized admin class
-admin.site.register(Book, BookAdmin)
