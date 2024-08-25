@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', list_books, name='list_books'),
     path('library/<int:pk>/', LibraryDetailView.as_view(), name='library_detail'),
-    path('templates/relationship_app/', include('relationship_app.urls')),
+    path('relationship_app/', include('relationship_app.urls')),
 ]
