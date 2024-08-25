@@ -19,5 +19,6 @@ def get_books_in_library(library_name):
 def get_librarian_for_library(library_name):
     # Retrieve the library object
     library = Library.objects.get(name=library_name)
-    # Use the related name 'librarian' to get the librarian for the library
-    return library.librarian
+    # Use Librarian.objects.get() to retrieve the librarian for the specific library
+    librarian = Librarian.objects.get(library=library)
+    return librarian
