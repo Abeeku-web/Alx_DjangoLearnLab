@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import permission_required
 from .models import Book
-from .forms import BookForm
+from .forms import BookForm, ExampleForm
 
 @permission_required('bookshelf.can_view', raise_exception=True)
 def book_list(request):
@@ -37,3 +37,17 @@ def delete_book(request, book_id):
         book.delete()
         # redirect after deletion
     return render(request, 'bookshelf/delete_book.html', {'book': book})
+
+def example_view(request):
+    if request.method == 'POST':
+        form = ExampleForm(request.POST)
+        if form.is_valid():
+            # Handle the form data here
+            name = form.cleaned_data['name']
+            description = form.cleaned_data['description']
+            date_created = form.cleaned_data['date_created']
+            # Process the data, e.g., save to the database or perform some action
+            return redirect('some_success_url')  # Redirect after successful form processing
+    else:
+        form = ExampleForm()
+    return render(request, 'bookshelf/example_form.html', {'form': form})
