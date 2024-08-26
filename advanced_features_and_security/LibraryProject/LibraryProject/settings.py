@@ -153,3 +153,44 @@ SECURE_HSTS_PRELOAD = True  # Allows preloading HSTS settings
 
 # Configure Allowed Hosts to include your domain(s)
 ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com']
+
+# Ensure all requests are redirected to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS) settings
+SECURE_HSTS_SECONDS = 31536000  # One year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Other security settings
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+
+# Secure cookies settings
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Additional security headers
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+
+# Security settings for HTTPS and secure cookies
+
+# Redirect all HTTP requests to HTTPS
+SECURE_SSL_REDIRECT = True  # Ensures that all traffic is encrypted
+
+# HTTP Strict Transport Security (HSTS) settings
+SECURE_HSTS_SECONDS = 31536000  # Enforces HTTPS for one year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Applies HSTS to all subdomains
+SECURE_HSTS_PRELOAD = True  # Allows inclusion in HSTS preload list
+
+# Secure cookies settings
+SESSION_COOKIE_SECURE = True  # Ensures cookies are only sent over HTTPS
+CSRF_COOKIE_SECURE = True  # Ensures CSRF cookies are only sent over HTTPS
+
+# Additional security headers
+X_FRAME_OPTIONS = 'DENY'  # Prevents the site from being framed
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevents MIME sniffing
+SECURE_BROWSER_XSS_FILTER = True  # Enables the browser's XSS filtering
