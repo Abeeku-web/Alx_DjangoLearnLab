@@ -6,7 +6,8 @@
     {% for post in posts %}
       <li>
         <h3><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h3>
-        <p>{{ post.content|slice:":100" }}...</p>
+        <p>{{ post.content|slice:":100" }}...</p> <!-- Display a snippet -->
+        <p><small>Published on {{ post.published_date }} by {{ post.author }}</small></p>
       </li>
     {% endfor %}
   </ul>
