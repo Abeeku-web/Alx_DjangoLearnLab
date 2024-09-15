@@ -1,17 +1,10 @@
 from django.db import models
 
-"""
-Author model represents a book author with a name field.
-Book model represents a book with a title, publication year, and a foreign key to the Author model.
-"""
-
-# Create your models here.
 class Author(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
-    
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
