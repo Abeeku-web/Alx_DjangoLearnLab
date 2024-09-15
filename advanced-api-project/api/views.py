@@ -15,6 +15,18 @@ class BookListView(generics.ListCreateAPIView):
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]  # Allow authenticated users to create; others can only view.
 
+    # Add filtering, searching, and ordering capabilities
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    
+    # Filtering options: title, author name, and publication year
+    filterset_fields = ['title', 'author__name', 'publication_year']
+    
+    # Searching options: title and author name
+    search_fields = ['title', 'author__name']
+    
+    # Ordering options: title and publication year
+    ordering_fields = ['title', 'publication_year']
+
 """
 BookDetailView: Handles GET, PUT, DELETE requests to retrieve, update, or delete a book by its ID.
 Permission: Only authenticated users can update or delete books.
