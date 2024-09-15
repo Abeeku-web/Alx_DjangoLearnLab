@@ -122,7 +122,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 TEMPLATES = [
     {
         # ...
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / 'templates'],
         # ...
     },
 ]
