@@ -22,7 +22,7 @@ class CustomUserCreationForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content']  # You can include other fields if necessary
+        fields = ['title', 'content', 'tags']  
 
 
 class CommentForm(forms.ModelForm):
