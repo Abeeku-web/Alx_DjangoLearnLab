@@ -4,8 +4,17 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.views import ObtainAuthToken
-
 from .serializers import UserSerializer, RegisterSerializer
+from django.http import JsonResponse
+from django.http import HttpResponseRedirect
+
+def accounts_home(request):
+    return JsonResponse({
+        "message": "Welcome to the Accounts API. Use /register, /login, or /profile endpoints."
+    })
+
+def accounts_redirect(request):
+    return HttpResponseRedirect('/api/accounts/register/')
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
