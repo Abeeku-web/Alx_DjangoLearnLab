@@ -52,7 +52,7 @@ class UserListView(generics.ListAPIView):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 # Follow a user view using GenericAPIView
-class FollowUserView(GenericAPIView):
+class FollowUserView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
     queryset = CustomUser.objects.all()  # This allows us to access all users
 
@@ -63,7 +63,7 @@ class FollowUserView(GenericAPIView):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-class UnfollowUserView(GenericAPIView):
+class UnfollowUserView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
     queryset = CustomUser.objects.all()
 
