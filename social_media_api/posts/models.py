@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from .models import Post
+from django.apps import apps
 
 User = get_user_model()
 
