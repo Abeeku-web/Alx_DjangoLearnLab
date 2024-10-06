@@ -5,7 +5,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.generics import GenericAPIView
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.views import ObtainAuthToken
-from .serializers import UserSerializer, RegisterSerializer, CustomUserSerializer
+from .serializers import UserSerializer, RegisterSerializer
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from rest_framework.decorators import api_view, permission_classes
@@ -45,7 +45,7 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 # List all users (publicly accessible or authenticated users only)
 class UserListView(generics.ListAPIView):
     queryset = CustomUser.objects.all()  # Retrieve all users
-    serializer_class = CustomUserSerializer
+    serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]  # Optional: if you want only authenticated users to view
 
 
