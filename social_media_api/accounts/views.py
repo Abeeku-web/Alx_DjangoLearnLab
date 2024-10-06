@@ -12,6 +12,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from .models import CustomUser
 
+def user_profile_view(request):
+    return JsonResponse({"message": "This is a function-based view."})
+
 def accounts_home(request):
     return JsonResponse({
         "message": "Welcome to the Accounts API. Use /register, /login, or /profile endpoints."
